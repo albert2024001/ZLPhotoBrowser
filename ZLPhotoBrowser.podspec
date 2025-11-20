@@ -1,0 +1,33 @@
+Pod::Spec.new do |s|
+  s.name                  = 'ZLPhotoBrowser'
+  s.version               = '4.6.0.1'
+  s.summary               = 'A lightweight and pure Swift implemented library for select photos from album'
+
+  s.description           = <<-DESC
+                              Wechat-like image picker. Support select photos, videos, gif and livePhoto. Support edit image and crop video.
+                              DESC
+
+  s.homepage              = 'https://github.com/longitachi/ZLPhotoBrowser'
+  s.license               = { :type => 'MIT', :file => 'LICENSE' }
+
+  s.author                = {'longitachi' => 'longitachi@163.com'}
+  s.social_media_url      = 'https://github.com/longitachi'
+
+  s.source = { :path => '.' }
+
+  s.ios.deployment_target = '10.0'
+
+  s.swift_versions        = ['5.0', '5.1', '5.2']
+
+  s.requires_arc          = true
+  s.frameworks            = 'UIKit','Photos','PhotosUI','AVFoundation','CoreMotion', 'Accelerate'
+
+  s.resources             = 'ZLPhotoBrowser/Sources/*.{png,bundle}'
+  s.resource_bundles      = {'ZLPhotoBrowser_Privacy' => ['ZLPhotoBrowser/Sources/PrivacyInfo.xcprivacy']}
+
+  s.subspec "Core" do |sp|
+    sp.source_files       = ['ZLPhotoBrowser/Sources/**/*.{swift,h,m}', 'Sources/ZLPhotoBrowser.h']
+    sp.exclude_files      = ['ZLPhotoBrowser/Sources/General/ZLWeakProxy.swift']
+  end
+
+end
